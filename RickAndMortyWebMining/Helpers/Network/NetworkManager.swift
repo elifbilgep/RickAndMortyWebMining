@@ -21,13 +21,8 @@ struct NetworkRequest {
 class NetworkManager {
     final let baseUrl = URL(string:  "https://rickandmortyapi.com/api/")
     
-    func buildURL(urlPath: URLPath) -> URL? {
-        if let baseUrl {
-            let requestURL = baseUrl.appending(path: urlPath.rawValue)
-            return requestURL
-        } else {
-            return nil
-        }
+    func buildURL(urlPath: URLPath) -> URL {
+        return baseUrl!.appending(path: urlPath.rawValue)
     }
 }
 

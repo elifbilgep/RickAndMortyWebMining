@@ -7,24 +7,31 @@
 
 import Foundation
 
+// MARK: - Characters
 struct Characters: Codable {
+    let info: CharacterInfo
     let results: [Character]
+}
+
+// MARK: - Info
+struct CharacterInfo: Codable {
+    let count, pages: Int
+    let next: String
 }
 
 struct Character: Codable {
     let id: Int
-    let name:  String
-    let status: String
-    let species: String
+    let name, status, species, type: String
     let gender: String
+    let origin, location: CharacterLocation
     let image: String
-    
-    enum CodingKeys: CodingKey {
-        case id
-        case name
-        case status
-        case species
-        case gender
-        case image
-    }
+    let episode: [String]
+    let url: String
+    let created: String
+}
+
+// MARK: - Location
+struct CharacterLocation: Codable {
+    let name: String
+    let url: String
 }
