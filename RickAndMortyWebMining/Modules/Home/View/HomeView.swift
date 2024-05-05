@@ -31,7 +31,7 @@ struct HomeView: View {
                         Text(viewModel.errorMessage)
                     }
                 }
-                .navigationTitle("Rick & Morty Characters")
+                .navigationTitle("Rick & Morty")
                 .navigationBarTitleDisplayMode(.automatic)
             }
         }
