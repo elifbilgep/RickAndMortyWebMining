@@ -11,7 +11,7 @@ import SwiftUI
 struct RickAndMortyWebMiningApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           HomeView()
         }
     }
 }
