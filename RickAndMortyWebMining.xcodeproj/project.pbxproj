@@ -27,6 +27,8 @@
 		6AD9562E2BE7C69A0089C750 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9562D2BE7C69A0089C750 /* Color+Extension.swift */; };
 		6AD956342BE7D5150089C750 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD956332BE7D5150089C750 /* LocationsViewModel.swift */; };
 		6AD956362BE7D5FD0089C750 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD956352BE7D5FD0089C750 /* Locations.swift */; };
+		91115DEE2BE81709004D6D1C /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91115DED2BE81709004D6D1C /* Episodes.swift */; };
+		91115DF12BE81744004D6D1C /* EpisodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91115DF02BE81744004D6D1C /* EpisodesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		6AD9562D2BE7C69A0089C750 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		6AD956332BE7D5150089C750 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		6AD956352BE7D5FD0089C750 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		91115DED2BE81709004D6D1C /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
+		91115DF02BE81744004D6D1C /* EpisodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 			children = (
 				6A24E17A2BC2F587007F02E2 /* Characters.swift */,
 				6AD956352BE7D5FD0089C750 /* Locations.swift */,
+				91115DED2BE81709004D6D1C /* Episodes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 		6A53BA262BE7E92400C52E6D /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				91115DEF2BE81730004D6D1C /* ViewModel */,
 				6A53BA272BE7E92C00C52E6D /* View */,
 			);
 			path = Episodes;
@@ -243,6 +249,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		91115DEF2BE81730004D6D1C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91115DF02BE81744004D6D1C /* EpisodesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,6 +332,8 @@
 				6A70265D2BC281FF00136F9F /* NetworkManager.swift in Sources */,
 				6A24E1842BC2FA17007F02E2 /* Client.swift in Sources */,
 				6AD9562E2BE7C69A0089C750 /* Color+Extension.swift in Sources */,
+				91115DEE2BE81709004D6D1C /* Episodes.swift in Sources */,
+				91115DF12BE81744004D6D1C /* EpisodesViewModel.swift in Sources */,
 				6A53BA292BE7E93800C52E6D /* EpisodesView.swift in Sources */,
 				6A24E1882BC2FA9C007F02E2 /* HomeViewModel.swift in Sources */,
 				6A24E1822BC2F816007F02E2 /* GenericAPI.swift in Sources */,
@@ -464,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMortyWebMining/Preview Content\"";
-				DEVELOPMENT_TEAM = Y5JW4F4D62;
+				DEVELOPMENT_TEAM = YQ2TMYN7DC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -493,7 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMortyWebMining/Preview Content\"";
-				DEVELOPMENT_TEAM = Y5JW4F4D62;
+				DEVELOPMENT_TEAM = YQ2TMYN7DC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
