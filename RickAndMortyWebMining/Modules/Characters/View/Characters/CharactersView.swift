@@ -11,7 +11,8 @@ struct CharactersView: View {
     @StateObject var viewModel = CharacterViewModel()
     @State private var searchText = ""
     @State private var showSearchButton = false
-    @State private var isOpenSortingSheet = false
+    
+    @State private var selectedSortOption: SortOption = .nameAscending
     
     var body: some View {
         NavigationStack {
@@ -24,7 +25,7 @@ struct CharactersView: View {
                             Text("Characters").font(.title2).fontWeight(.bold)
                         }
                         Spacer()
-                        // MARK: Sort
+                        // MARK: Filter
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 50, height: 50)
                             .foregroundStyle(.gray.opacity(0.5))
@@ -33,8 +34,11 @@ struct CharactersView: View {
                                     .font(.title)
                             }.onTapGesture {
                                 viewModel.isOpenFilterSheet = true
+                                Task {
+                                    try await viewModel.fetchAllCharacters()
+                                }
                             }
-                        // MARK: Filter
+                        // MARK: Sort
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 50, height: 50)
                             .foregroundStyle(.gray.opacity(0.5))
@@ -42,7 +46,7 @@ struct CharactersView: View {
                                 Image(systemName: "list.number")
                                     .font(.title)
                             }.onTapGesture {
-                                isOpenSortingSheet = true
+                                viewModel.isOpenSortingSheet = true
                             }
                     }
                     .padding(.top, 60)
@@ -122,7 +126,7 @@ struct CharactersView: View {
                 .sheet(isPresented: $viewModel.isOpenFilterSheet, content: {
                     filterSheetView
                 })
-                .sheet(isPresented: $isOpenSortingSheet, content: {
+                .sheet(isPresented: $viewModel.isOpenSortingSheet, content: {
                     sortingSheetView
                 })
         }.preferredColorScheme(.dark)
@@ -204,7 +208,35 @@ struct CharactersView: View {
     // MARK: Sorting Sheet View
     var sortingSheetView: some View {
         VStack {
+            Text("Sort Characters").font(.title).bold()
+                .padding(.top, 30)
+            ForEach(SortOption.allCases, id: \.self) { option in
+                Button(action: {
+                    selectedSortOption = option
+                  
+                }) {
+                    HStack {
+                        Text(option.rawValue)
+                        Spacer()
+                        if option == selectedSortOption {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                    .padding()
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(8)
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+            }
             
+            Button("Sort") {
+                viewModel.isOpenSortingSheet = false
+                viewModel.sort(by: selectedSortOption)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
+            Spacer()
         }
     }
 }
@@ -212,3 +244,4 @@ struct CharactersView: View {
 #Preview {
     CharactersView()
 }
+

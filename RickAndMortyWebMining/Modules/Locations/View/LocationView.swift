@@ -11,8 +11,8 @@ struct LocationView: View {
     @StateObject var viewModel = LocationsViewModel()
     @State private var searchText = ""
     @State private var showSearchButton = false
-    @State private var isOpenFilterSheet = false
-    @State private var isOpenSortingSheet = false
+    
+    @State private var selectedSortOption: SortOption = .nameAscending
     
     var body: some View {
         NavigationStack {
@@ -25,6 +25,7 @@ struct LocationView: View {
                             Text("Locations").font(.title2).fontWeight(.bold)
                         }
                         Spacer()
+                        // MARK: Filter
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 50, height: 50)
                             .foregroundStyle(.gray.opacity(0.5))
@@ -32,7 +33,20 @@ struct LocationView: View {
                                 Image(systemName: "line.3.horizontal.decrease.circle.fill")
                                     .font(.title)
                             }.onTapGesture {
-                                isOpenFilterSheet = true
+                                viewModel.isOpenFilterSheet = true
+                            }
+                        // MARK: Sort
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: 50, height: 50)
+                            .foregroundStyle(.gray.opacity(0.5))
+                            .overlay {
+                                Image(systemName: "list.number")
+                                    .font(.title)
+                            }.onTapGesture {
+                                viewModel.isOpenSortingSheet = true
+                                Task {
+                                   try await viewModel.fetchAllLocations()
+                                }
                             }
                     }
                     .padding(.top, 60)
@@ -93,7 +107,7 @@ struct LocationView: View {
                                         .onAppear {
                                             Task {
                                                 
-                                              try await viewModel.pagination(currentItem: location)
+                                                try await viewModel.pagination(currentItem: location)
                                             }
                                         }
                                 }
@@ -110,13 +124,58 @@ struct LocationView: View {
                 
             }
             .ignoresSafeArea()
-            .sheet(isPresented: $isOpenFilterSheet ) {
+            .sheet(isPresented: $viewModel.isOpenFilterSheet ) {
                 filterSheetView
+            }
+            .sheet(isPresented: $viewModel.isOpenSortingSheet ) {
+                sortingSheetView
             }
         }
     }
     
-    
+    // MARK: Sorting Sheet View
+    var sortingSheetView: some View {
+        VStack {
+            Text("Sort Characters").font(.title).bold()
+                .padding(.top, 30)
+            ForEach(SortOption.allCases, id: \.self) { option in
+                Button(action: {
+                    selectedSortOption = option
+                    
+                }) {
+                    HStack {
+                        Text(option.rawValue)
+                        Spacer()
+                        if option == selectedSortOption {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                    .padding()
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(8)
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+            }
+            
+            Button(action: {
+                viewModel.toggleSortingSheet(with: false)
+                viewModel.sort(by: selectedSortOption)
+            }) {
+                Text("Sort")
+                    .font(.headline)
+                    .padding()
+                    .background(.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .padding(.vertical)
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
+            Spacer()
+        }
+    }
+
     // MARK: Filter Sheet View
     @ViewBuilder
     var filterSheetView: some View {
@@ -141,10 +200,10 @@ struct LocationView: View {
             
             Button(action: {
                 Task {
-                   await viewModel.filterLocation()
+                    await viewModel.filterLocation()
                 }
                 viewModel.filterSwitchOnOff(bool: true)
-                isOpenFilterSheet = false
+                viewModel.isOpenFilterSheet = false
             }) {
                 Text("Apply Filters")
                     .font(.headline)

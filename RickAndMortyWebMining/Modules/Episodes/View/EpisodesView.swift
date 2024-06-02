@@ -12,7 +12,9 @@ struct EpisodesView: View {
     @State private var searchText = ""
     @State private var showSearchButton = false
     @State private var isFilterSheetOpen = false
+    @State private var isSortingSheetOpen = false
     @State private var selectedNumber: Int = 1
+    @State private var selectedSortOption: SortOption = .nameAscending
     
     var body: some View {
         ZStack {
@@ -24,6 +26,7 @@ struct EpisodesView: View {
                         Text("Episodes").font(.title2).fontWeight(.bold)
                     }
                     Spacer()
+                    // MARK: Filter
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 50, height: 50)
                         .foregroundStyle(.gray.opacity(0.5))
@@ -33,6 +36,19 @@ struct EpisodesView: View {
                         }
                         .onTapGesture {
                             isFilterSheetOpen = true
+                        }
+                    // MARK: Sort
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 50, height: 50)
+                        .foregroundStyle(.gray.opacity(0.5))
+                        .overlay {
+                            Image(systemName: "list.number")
+                                .font(.title)
+                        }.onTapGesture {
+                           isSortingSheetOpen = true
+                            Task {
+                               try await viewModel.fetchAllEpisodes()
+                            }
                         }
                 }
                 .padding(.top ,60)
@@ -93,6 +109,9 @@ struct EpisodesView: View {
         .sheet(isPresented: $isFilterSheetOpen) {
             filterSheet
         }
+        .sheet(isPresented: $isSortingSheetOpen) {
+            sortingSheet
+        }
     }
     
     // MARK: Filter Sheet
@@ -125,6 +144,49 @@ struct EpisodesView: View {
                 .frame(height: 150)
         }
         .padding()
+    }
+    
+    // MARK: Sorting Sheet View
+    var sortingSheet: some View {
+        VStack {
+            Text("Sort Characters").font(.title).bold()
+                .padding(.top, 30)
+            ForEach(SortOption.allCases, id: \.self) { option in
+                Button(action: {
+                    selectedSortOption = option
+                    
+                }) {
+                    HStack {
+                        Text(option.rawValue)
+                        Spacer()
+                        if option == selectedSortOption {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                    .padding()
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(8)
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+            }
+            
+            Button(action: {
+                isSortingSheetOpen = false
+                viewModel.sort(by: selectedSortOption)
+            }) {
+                Text("Sort")
+                    .font(.headline)
+                    .padding()
+                    .background(.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .padding(.vertical)
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
+            Spacer()
+        }
     }
     
     // MARK: Search Button

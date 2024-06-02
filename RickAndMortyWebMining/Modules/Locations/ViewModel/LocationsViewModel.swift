@@ -18,10 +18,14 @@ final class LocationsViewModel: ObservableObject {
     @Published private var isFetching = false
     @Published var filterType: String = "All"
     @Published var isFilterSwitchOn = false
+    @Published var isOpenFilterSheet = false
+    @Published var isOpenSortingSheet = false
     @Published private(set) var filteredLocations: [Location] = []
     @Published var locationPopulationDictList = []
-  
+    @Published var allLocations: [Location] = []
     var nextPage: String?
+    var currentPage = 1
+    var totalPage = 0
     
     // MARK: Fetch
     func fetchLocations() async {
@@ -30,6 +34,7 @@ final class LocationsViewModel: ObservableObject {
             let response = try await client.fetch(type: Locations.self, with: request)
             locations.append(contentsOf: response.results)
             nextPage = response.info.next
+            totalPage = response.info.pages
         } catch {
             handleFetchError(error: error)
         }
@@ -47,6 +52,23 @@ final class LocationsViewModel: ObservableObject {
                 handleFetchError(error: error)
             }
         }
+    }
+    
+    func fetchAllLocations() async throws {
+        while currentPage < totalPage {
+            let urlString = "\(BASE_URL)/location/?page=\(currentPage)"
+            let request = URLRequest(url: URL(string: urlString)!)
+
+            do {
+                let response = try await client.fetch(type: Locations.self, with: request)
+                allLocations.append(contentsOf: response.results)
+            } catch {
+                handleFetchError(error: error)
+                break 
+            }
+            currentPage += 1
+        }
+        print(allLocations)
     }
     
     // MARK: Pagination
@@ -112,11 +134,35 @@ final class LocationsViewModel: ObservableObject {
         }
     }
     
+    // MARK: Toggle Sheets
     func filterSwitchOnOff(bool: Bool) {
         if bool {
             isFilterSwitchOn = true
         } else {
             isFilterSwitchOn = false
         }
+    }
+    
+    func toggleSortingSheet(with bool: Bool) {
+        if bool {
+            isOpenSortingSheet = true
+        } else {
+            isOpenSortingSheet = false
+        }
+    }
+    
+    // MARK: Sort
+    func sortLocations(by option: SortOption) -> [Location] {
+        locations = []
+        switch option {
+        case .nameAscending:
+            return allLocations.sorted { $0.name < $1.name }
+        case .nameDescending:
+            return allLocations.sorted { $0.name > $1.name }
+        }
+    }
+    
+    func sort(by option: SortOption) {
+       locations = sortLocations(by: option)
     }
 }

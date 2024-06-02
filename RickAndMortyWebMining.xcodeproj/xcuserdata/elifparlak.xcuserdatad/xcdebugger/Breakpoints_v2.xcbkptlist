@@ -14,8 +14,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "fetchEpisodes()"
             landmarkType = "7">
             <Locations>
@@ -62,8 +62,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "fetchEpisodes()"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "pagination(currentItem:)"
             landmarkType = "7">
             <Locations>
@@ -126,8 +126,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "fetchNextPage()"
             landmarkType = "7">
             <Locations>
@@ -174,8 +174,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "fetchNextPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "filterEpsiodes(episode:)"
             landmarkType = "7">
             <Locations>
@@ -238,8 +238,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "filterEpsiodes(episode:)"
             landmarkType = "7">
             <Locations>
@@ -301,8 +301,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "filterEpsiodes(episode:)"
             landmarkType = "7">
             <Locations>
@@ -349,8 +349,8 @@
             filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "filterEpsiodes(episode:)"
             landmarkType = "7">
             <Locations>

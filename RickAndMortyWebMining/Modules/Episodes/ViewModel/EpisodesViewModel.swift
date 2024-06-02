@@ -16,8 +16,10 @@ final class EpisodesViewModel: ObservableObject {
     @Published private(set) var errorMessage: String = ""
     @Published var hasError: Bool = false
     @Published private var isFetching = false
+    @Published var allEpisodes: [Episode] = []
     var nextPage: String?
-    
+    var currentPage = 1
+    var totalPage = 0
     // MARK: Fetch
     func fetchEpisodes() async {
         let request = URLRequest(url: NetworkManager().buildURL(urlPath: .episode))
@@ -25,9 +27,28 @@ final class EpisodesViewModel: ObservableObject {
             let response = try await client.fetch(type: Episodes.self, with: request)
             episodes.append(contentsOf: response.results)
             nextPage = response.info.next
+            totalPage = response.info.pages
         } catch {
             handleFetchError(error: error)
         }
+    }
+    
+    
+    func fetchAllEpisodes() async throws {
+        while currentPage < totalPage {
+            let urlString = "\(BASE_URL)/episode/?page=\(currentPage)"
+            let request = URLRequest(url: URL(string: urlString)!)
+
+            do {
+                let response = try await client.fetch(type: Episodes.self, with: request)
+                allEpisodes.append(contentsOf: response.results)
+            } catch {
+                handleFetchError(error: error)
+                break
+            }
+            currentPage += 1
+        }
+        print(allEpisodes)
     }
     
     func fetchCharacters(urlStrings: [String]) async {
@@ -94,5 +115,20 @@ final class EpisodesViewModel: ObservableObject {
         } catch {
             handleFetchError(error: error)
         }
+    }
+    
+    // MARK: Sort
+    func sortLocations(by option: SortOption) -> [Episode] {
+        episodes = []
+        switch option {
+        case .nameAscending:
+            return allEpisodes.sorted { $0.name < $1.name }
+        case .nameDescending:
+            return allEpisodes.sorted { $0.name > $1.name }
+        }
+    }
+    
+    func sort(by option: SortOption) {
+       episodes = sortLocations(by: option)
     }
 }

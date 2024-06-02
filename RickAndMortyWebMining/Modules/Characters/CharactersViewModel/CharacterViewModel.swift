@@ -9,11 +9,19 @@ import Foundation
 
 let BASE_URL = "https://rickandmortyapi.com/api"
 
+enum SortOption: String, CaseIterable, Identifiable {
+    case nameAscending = "Name Ascending"
+    case nameDescending = "Name Descending"
+    
+    var id: String { self.rawValue }
+}
+
 @MainActor
 final class CharacterViewModel: ObservableObject {
     private let client = Client()
     @Published private(set) var characters: [Character] = []
     @Published private(set) var filteredCharacters: [Character] = []
+    @Published private(set) var allCharacters: [Character] = []
     @Published private(set) var errorMessage: String = ""
     @Published var hasError: Bool = false
     @Published private var isFetching = false
@@ -22,9 +30,11 @@ final class CharacterViewModel: ObservableObject {
     @Published var filterGender: String = "All"
     @Published var isFilterSwitchOn = false
     @Published var isOpenFilterSheet = false
+    @Published var isOpenSortingSheet = false
     
     private var nextPage: String?
     private var currentPage: Int = 1
+    private var totalPage: Int = 0
     
     // MARK: Fetch
     func fetchCharacters() async throws {
@@ -33,9 +43,27 @@ final class CharacterViewModel: ObservableObject {
             let response = try await client.fetch(type: Characters.self, with: request)
             characters.append(contentsOf: response.results)
             nextPage = response.info.next
+            totalPage = response.info.pages ?? 0
         } catch {
             handleFetchError(error: error)
         }
+    }
+    
+    func fetchAllCharacters() async throws {
+        while currentPage < totalPage {
+            let urlString = "\(BASE_URL)/character?page=\(currentPage)"
+            let request = URLRequest(url: URL(string: urlString)!)
+
+            do {
+                let response = try await client.fetch(type: Characters.self, with: request)
+                allCharacters.append(contentsOf: response.results)
+            } catch {
+                handleFetchError(error: error)
+                break // Exit loop if there's an error to prevent infinite retries
+            }
+            currentPage += 1
+        }
+        print(allCharacters)
     }
     
     // MARK: Pagianation
@@ -83,7 +111,7 @@ final class CharacterViewModel: ObservableObject {
         self.filterGender = "All"
         self.filterStatus = "All"
         self.filterSpecies = "All"
-       filterSwitchOnOff(bool: false)
+        filterSwitchOnOff(bool: false)
     }
     
     // MARK: Filter
@@ -123,6 +151,31 @@ final class CharacterViewModel: ObservableObject {
         return components.url
     }
     
+    
+    // MARK: Sort
+    func sortCharacters(by option: SortOption) -> [Character] {
+        characters = []
+        switch option {
+        case .nameAscending:
+            return allCharacters.sorted { $0.name < $1.name }
+        case .nameDescending:
+            return allCharacters.sorted { $0.name > $1.name }
+        }
+    }
+    
+    func sort(by option: SortOption) {
+       characters = sortCharacters(by: option)
+    }
+    
+    // MARK: Toggle Sheets
+    func toggleSortingSheet(with bool: Bool) {
+        if bool {
+            isOpenSortingSheet = true
+        } else {
+            isOpenSortingSheet = false
+        }
+    }
+    
     func filterSwitchOnOff(bool: Bool) {
         if bool {
             isFilterSwitchOn = true
@@ -130,6 +183,6 @@ final class CharacterViewModel: ObservableObject {
             isFilterSwitchOn = false
         }
     }
-
+    
 }
 
