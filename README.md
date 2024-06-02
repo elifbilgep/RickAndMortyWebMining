@@ -1,8 +1,8 @@
 #### Get character
 
-```http
+``http
   GET https://rickandmortyapi.com/api/character/
-```
+``
 
 | Path | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -10,9 +10,9 @@
 
 #### Filter & Search Character
 
-```http
+``http
   GET https://rickandmortyapi.com/api/character/?name=rick&status=alive
-```
+``
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -23,9 +23,9 @@
 
 #### Get Locations
 
-```http
+``http
   GET https://rickandmortyapi.com/api/location
-```
+``
 
 | Path | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -34,9 +34,9 @@
 
 #### Filter & Search Locations
 
-```http
+``http
   GET https://rickandmortyapi.com/api/location/?name=earth&type=planet
-```
+``
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -46,9 +46,9 @@
 
 #### Get Episodes
 
-```http
+``http
   GET https://rickandmortyapi.com/api/episode
-```
+``
 
 
 | Path | Type     | Description                |
@@ -58,9 +58,9 @@
 
 #### Filter & Search Episodes
 
-```http
+``http
   GET https://rickandmortyapi.com/api/episode/28
-```
+``
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `/(episodeNumber)` | `string` | Episode number to get episode|
