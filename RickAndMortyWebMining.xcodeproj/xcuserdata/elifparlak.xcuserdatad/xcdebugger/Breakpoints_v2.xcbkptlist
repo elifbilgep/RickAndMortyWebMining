@@ -3,4 +3,389 @@
    uuid = "7B0C320F-3642-4A63-9B86-2E5B7ADCCE4F"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEAEC2A0-95A0-4A58-BF7C-8FC89DDF1A98"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "fetchEpisodes()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FEAEC2A0-95A0-4A58-BF7C-8FC89DDF1A98 - fb7089f027d85378"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyWebMining.EpisodesViewModel.fetchEpisodes() async -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "FEAEC2A0-95A0-4A58-BF7C-8FC89DDF1A98 - 63eb000c71578740"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.fetchEpisodes() async -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B03E341-23DC-49BE-86E7-4452A3C2BA9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "fetchEpisodes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "940C8B00-7C31-475D-9F6A-0BA29B5B838E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "pagination(currentItem:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "940C8B00-7C31-475D-9F6A-0BA29B5B838E - 769562e517ede6cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyWebMining.EpisodesViewModel.pagination(currentItem: RickAndMortyWebMining.Episode) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "940C8B00-7C31-475D-9F6A-0BA29B5B838E - 9c69760481a6a341"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.pagination(currentItem: RickAndMortyWebMining.Episode) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F979D1B4-8947-4D44-8C84-97D529F63020"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "fetchNextPage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F979D1B4-8947-4D44-8C84-97D529F63020 - db87db863a79465a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyWebMining.EpisodesViewModel.fetchNextPage() async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "F979D1B4-8947-4D44-8C84-97D529F63020 - abb9f24e2cb16e73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.fetchNextPage() async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AF11A31-5AF6-421E-8323-9F4F60BA662A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "fetchNextPage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CBACC547-7853-4FF1-9F33-B125F1424D35"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "filterEpsiodes(episode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CBACC547-7853-4FF1-9F33-B125F1424D35 - a9088379745e176e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "CBACC547-7853-4FF1-9F33-B125F1424D35 - a9088379745e176e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C325B41-8666-47EC-8135-6B3EBEAE6585"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "filterEpsiodes(episode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3C325B41-8666-47EC-8135-6B3EBEAE6585 - 85e5138ad86aa16c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "3C325B41-8666-47EC-8135-6B3EBEAE6585 - 589103ebd3582b8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "3C325B41-8666-47EC-8135-6B3EBEAE6585 - 589103ebd3582b8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DBC3BFC-AA30-4F9B-9C31-C45A1421141F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "filterEpsiodes(episode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9DBC3BFC-AA30-4F9B-9C31-C45A1421141F - 589103ebd3582b4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "9DBC3BFC-AA30-4F9B-9C31-C45A1421141F - 589103ebd3582b4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCE86A67-B092-4315-9E1C-B82AEF9ECF04"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "filterEpsiodes(episode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FCE86A67-B092-4315-9E1C-B82AEF9ECF04 - 589103ebd3582bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "FCE86A67-B092-4315-9E1C-B82AEF9ECF04 - 589103ebd3582bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RickAndMortyWebMining.EpisodesViewModel.filterEpsiodes(episode: Swift.Int) async throws -&gt; ()"
+                  moduleName = "RickAndMortyWebMining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elifparlak/Desktop/Code/RickAndMortyWebMining/RickAndMortyWebMining/Modules/Episodes/ViewModel/EpisodesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

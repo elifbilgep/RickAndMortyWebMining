@@ -16,7 +16,7 @@ struct Episodes: Codable {
 // MARK: - Info
 struct EpisodesInfo: Codable {
     let count, pages: Int
-    let next: String
+    let next: String?
 
 }
 

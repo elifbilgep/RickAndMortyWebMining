@@ -14,14 +14,12 @@ struct CharacterDetailView: View {
                         Image(systemName: "arrow.backward")
                         Text("Back").bold()
                         
-                        Spacer()
                     }.padding(.top, 60)
                         .padding(.horizontal, 20)
                         .onTapGesture {
                             presentationMode.wrappedValue.dismiss()
                             
                         }
-                    Spacer()
                     Text(character.name)
                         .font(.title)
                         .fontWeight(.bold)
@@ -29,18 +27,13 @@ struct CharacterDetailView: View {
                     AsyncImage(url: URL(string: character.image))
                         .cornerRadius(15)
                         .aspectRatio(contentMode: .fit)
-                    
-                    
                     VStack(alignment: .center, spacing: 10) {
-                        
                         Text("Status: \(character.status)")
                         Text("Species: \(character.species)")
                         Text("Gender: \(character.gender)")
                         Text("Origin: \(character.origin.name)")
                         Text("Location: \(character.location.name)")
-                        
                     }
-                    Spacer()
                 }
                 
             }

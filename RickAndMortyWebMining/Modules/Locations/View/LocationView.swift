@@ -9,6 +9,11 @@ import SwiftUI
 
 struct LocationView: View {
     @StateObject var viewModel = LocationsViewModel()
+    @State private var searchText = ""
+    @State private var showSearchButton = false
+    @State private var isOpenFilterSheet = false
+    @State private var isOpenSortingSheet = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -16,8 +21,8 @@ struct LocationView: View {
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Rick And Morty").font(.largeTitle).fontWeight(.bold)
-                            Text("Locations").font(.title).fontWeight(.bold)
+                            Text("Rick And Morty").font(.title).fontWeight(.bold)
+                            Text("Locations").font(.title2).fontWeight(.bold)
                         }
                         Spacer()
                         RoundedRectangle(cornerRadius: 10)
@@ -26,6 +31,8 @@ struct LocationView: View {
                             .overlay {
                                 Image(systemName: "line.3.horizontal.decrease.circle.fill")
                                     .font(.title)
+                            }.onTapGesture {
+                                isOpenFilterSheet = true
                             }
                     }
                     .padding(.top, 60)
@@ -39,12 +46,32 @@ struct LocationView: View {
                         .overlay {
                             HStack {
                                 Image(systemName: "magnifyingglass")
-                                Text("Search")
+                                TextField("Search", text: $searchText)
+                                    .foregroundColor(.white)
+                                    .onChange(of: searchText) { oldValue, newValue in
+                                        withAnimation {
+                                            if newValue != "" {
+                                                showSearchButton = true
+                                            } else {
+                                                showSearchButton = false
+                                            }
+                                        }
+                                    }
                                 Spacer()
+                                showSearchButton ? searchButton
+                                : nil
+                                Image(systemName: "xmark").foregroundStyle(.white)
+                                    .onTapGesture {
+                                        searchText = ""
+                                        Task {
+                                            try await viewModel.resetSearch()
+                                        }
+                                    }
                             }.padding()
                         }
-                        .padding(.horizontal , 10)
+                        .padding(.horizontal, 20)
                         .padding(.bottom, 10)
+                        .tint(.white)
                     
                     // MARK: Image
                     Image("location")
@@ -54,44 +81,126 @@ struct LocationView: View {
                         .cornerRadius(15)
                         .padding(.bottom)
                     
-                    ScrollView {
-                        LazyVGrid(columns: [
-                            GridItem(.adaptive(minimum: 200)),
-                            GridItem(.adaptive(minimum: 200))
-                        ], spacing: 20) {
-                            ForEach(viewModel.locations, id: \.id) { location in
-                                NavigationLink {
-                                    LocationDetailView(location: location)
-                                } label: {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 180, height: 60)
-                                        .foregroundStyle(Color(hex: "3B3E43"))
-                                        .overlay {
-                                            VStack{
-                                                Text(location.name)
-                                                Text("\(location.type)").opacity(0.6)
+                    // MARK: Locations
+                    ScrollViewReader { scrollView in
+                        ScrollView {
+                            LazyVGrid(columns: [
+                                GridItem(.adaptive(minimum: 200)),
+                                GridItem(.adaptive(minimum: 200))
+                            ], spacing: 20) {
+                                ForEach(viewModel.locations, id: \.id) { location in
+                                    LocationCell(location: location)
+                                        .onAppear {
+                                            Task {
                                                 
-                                            }.padding()
-                                                .font(.body)
+                                              try await viewModel.pagination(currentItem: location)
+                                            }
                                         }
-                                }.tint(.white)
+                                }
                             }
-                        }
-                        
-                    }.frame(width: UIScreen.main.bounds.width, alignment: .center)
-                    Spacer()
+                        }.frame(width: UIScreen.main.bounds.width, alignment: .center)
+                        Spacer()
+                    }
                 }
                 .task {
-                    await viewModel.fetchLocations()
+                    if searchText == "" {
+                        await viewModel.fetchLocations()
+                    }
                 }
+                
             }
             .ignoresSafeArea()
+            .sheet(isPresented: $isOpenFilterSheet ) {
+                filterSheetView
+            }
         }
-    
     }
     
+    
+    // MARK: Filter Sheet View
+    @ViewBuilder
+    var filterSheetView: some View {
+        VStack {
+            Text("Filter").font(.largeTitle).bold()
+                .padding(.top, 20)
+            Toggle(isOn: $viewModel.isFilterSwitchOn, label: {
+                Text("Filter on / off")
+            })
+            HStack {
+                Text("Type:").font(.title3)
+                Spacer()
+                Picker("Type", selection: $viewModel.filterType) {
+                    ForEach(viewModel.typeOptions, id: \.self) { status in
+                        Text(status).tag(status)
+                    }
+                }
+                .pickerStyle(.menu)
+                .tint(.white)
+            }.padding(.vertical)
+            
+            
+            Button(action: {
+                Task {
+                   await viewModel.filterLocation()
+                }
+                viewModel.filterSwitchOnOff(bool: true)
+                isOpenFilterSheet = false
+            }) {
+                Text("Apply Filters")
+                    .font(.headline)
+                    .padding()
+                    .background(.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }.padding(.vertical)
+            Spacer()
+        }.foregroundStyle(.white)
+            .padding()
+    }
+    
+    // MARK: Search Button
+    @ViewBuilder
+    var searchButton: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .frame(width: 100, height: 40)
+            .foregroundStyle(.green)
+            .overlay {
+                Text("Search")
+                    .foregroundStyle(.white)
+            }.onTapGesture {
+                Task {
+                    do {
+                        try await viewModel.searchLocation(location: searchText)
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+    }
 }
 
 #Preview {
     LocationView().preferredColorScheme(.dark)
+}
+
+struct LocationCell:  View {
+    var location: Location
+    
+    var body: some View {
+        NavigationLink {
+            LocationDetailView(location: location)
+        } label: {
+            RoundedRectangle(cornerRadius: 20)
+                .frame(width: 180, height: 60)
+                .foregroundStyle(Color(hex: "3B3E43"))
+                .overlay {
+                    VStack{
+                        Text(location.name)
+                        Text("\(location.type)").opacity(0.6)
+                        
+                    }.padding()
+                        .font(.body)
+                }
+        }.tint(.white)
+    }
 }

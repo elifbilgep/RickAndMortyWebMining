@@ -43,6 +43,7 @@ struct HomeViewCell: View {
                                     .font(.system(size: 24))
                                     .bold()
                                     .foregroundStyle(.whiteTitle)
+                                    .multilineTextAlignment(.leading)
                                 HStack {
                                     Circle()
                                         .frame(width: 10)

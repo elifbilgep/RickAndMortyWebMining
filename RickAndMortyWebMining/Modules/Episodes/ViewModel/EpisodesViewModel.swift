@@ -16,12 +16,15 @@ final class EpisodesViewModel: ObservableObject {
     @Published private(set) var errorMessage: String = ""
     @Published var hasError: Bool = false
     @Published private var isFetching = false
+    var nextPage: String?
     
+    // MARK: Fetch
     func fetchEpisodes() async {
         let request = URLRequest(url: NetworkManager().buildURL(urlPath: .episode))
         do {
             let response = try await client.fetch(type: Episodes.self, with: request)
             episodes.append(contentsOf: response.results)
+            nextPage = response.info.next
         } catch {
             handleFetchError(error: error)
         }
@@ -41,8 +44,55 @@ final class EpisodesViewModel: ObservableObject {
         }
     }
     
+    // MARK: Error
     private func handleFetchError(error: Error) {
         errorMessage = "\((error as! APIError).customDescription)"
         hasError = true
+    }
+    
+    // MARK: Search
+    func searchEpisode(episode: String) async throws {
+        episodes = []
+        let request = URLRequest(url: URL(string: "\(BASE_URL)/episode/?name=\(episode)")!)
+        do {
+            let response = try await client.fetch(type: Episodes.self, with: request)
+            episodes.append(contentsOf: response.results)
+            //nextPage += 1
+        } catch {
+            handleFetchError(error: error)
+        }
+    }
+    
+    func resetSearch() async throws {
+        episodes = []
+        await fetchEpisodes()
+    }
+    
+    // MARK: Pagination
+    func pagination(currentItem: Episode) async throws  {
+        if let lastEpisode = episodes.last, lastEpisode.id == currentItem.id {
+            try await fetchNextPage()
+        }
+    }
+    
+    func fetchNextPage() async throws {
+        if let nextPage {
+            let request = URLRequest(url: URL(string: nextPage)!)
+            let response = try await client.fetch(type: Episodes.self, with: request)
+            episodes.append(contentsOf: response.results)
+            self.nextPage = response.info.next
+        }
+    }
+    
+    // MARK: Filter
+    func filterEpsiodes(episode: Int) async throws {
+        episodes = []
+        let request = URLRequest(url: URL(string: "\(BASE_URL)/episode/\(episode)")!)
+        do {
+            let response = try await client.fetch(type: Episode.self, with: request)
+            episodes.append(response)
+        } catch {
+            handleFetchError(error: error)
+        }
     }
 }

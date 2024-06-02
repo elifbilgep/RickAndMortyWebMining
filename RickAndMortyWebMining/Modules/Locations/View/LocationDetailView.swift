@@ -11,6 +11,7 @@ struct LocationDetailView: View {
     var location: Location
     @StateObject var viewModel = LocationsViewModel()
     @Environment(\.presentationMode) var presentationMode
+    
 
     var body: some View {
         ZStack {

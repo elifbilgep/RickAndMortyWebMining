@@ -25,6 +25,7 @@ extension GenericAPI {
             let decoder = JSONDecoder()
             return try decoder.decode(type, from: data) 
         } catch {
+            print(error)
             throw APIError.jsonConversionFailure(description: error.localizedDescription)
         }
     }

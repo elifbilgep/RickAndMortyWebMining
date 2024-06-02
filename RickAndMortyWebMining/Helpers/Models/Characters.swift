@@ -15,8 +15,8 @@ struct Characters: Codable {
 
 // MARK: - Info
 struct CharacterInfo: Codable {
-    let count, pages: Int
-    let next: String
+    let count, pages: Int?
+    let next: String?
 }
 
 struct Character: Codable {
