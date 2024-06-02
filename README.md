@@ -10,12 +10,12 @@ The project involves utilizing the Rick and Morty API to populate a mobile app t
 - The API will automatically paginate the responses. You will receive up to 20 documents per page.
 - Each resource contains an `info` object with information about the response.
 
-  | Key | Type     | Description                |
+| Key | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `count` | `string` | The length of the response |
 | `pages` | `string` | The amount of pages|
-| `next` | `string(url)` | Link to the next page (if it exists)|
-| `prev` | `string(url)` | Link to the previous page (if it exists)|
+| `next` | `string` | Link to the next page (if it exists)|
+| `prev` | `string` | Link to the previous page (if it exists)|
 
 ## API Reference
 
