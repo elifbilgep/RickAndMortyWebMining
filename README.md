@@ -1,6 +1,7 @@
 # Rick and Morty API App
 
 The project involves utilizing the Rick and Morty API to populate a mobile app that displays characters, locations, and episodes. The REST API is central to accessing various resources, with all requests being made over HTTPS and returning JSON data. The app includes features for filtering and sorting characters, episodes, and locations using SwiftUI and following an MVVM architecture.
+[View Screenshots](#screenshots-section)
 
 ## Rest
 - Base url: https://rickandmortyapi.com/api
@@ -87,6 +88,7 @@ The project involves utilizing the Rick and Morty API to populate a mobile app t
 | `/(episodeNumber)` | `string` | Episode number to get episode|
 | `/name`      | `string` | Epiosde's name e.g. Anatomy Park|
 
+<a name="screenshots-section"></a>
 ## Screenshots 
 ### Filter
 <img src="https://github.com/elifbilgep/RickAndMortyWebMining/assets/58171409/7db9ea4f-48b6-4037-ad2b-563e5ca5e21a" alt="drawing" width="200"/> 
