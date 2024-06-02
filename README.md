@@ -1,3 +1,24 @@
+# Rick and Morty API App
+
+The project involves utilizing the Rick and Morty API to populate a mobile app that displays characters, locations, and episodes. The REST API is central to accessing various resources, with all requests being made over HTTPS and returning JSON data. The app includes features for filtering and sorting characters, episodes, and locations using SwiftUI and following an MVVM architecture.
+
+## Rest
+- Base url: https://rickandmortyapi.com/api
+- The base url contains information about all available API's resources. All requests are `GET` requests and go over `https`. All responses will return data in `json`.
+
+## Info and Pagination
+- The API will automatically paginate the responses. You will receive up to 20 documents per page.
+- Each resource contains an `info` object with information about the response.
+
+  | Key | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `count` | `string` | The length of the response |
+| `pages` | `string` | The amount of pages|
+| `next` | `string(url)` | Link to the next page (if it exists)|
+| `prev` | `string(url)` | Link to the previous page (if it exists)|
+
+## API Reference
+
 #### Get character
 
 ```https
